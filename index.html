@@ -14,36 +14,114 @@
       padding: 0 1rem;
       line-height: 1.6;
     }
+
     h1 {
       font-size: 2rem;
       margin-bottom: 0.5rem;
     }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #222;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .who-line {
+      font-size: 1.05rem;
+      margin: 0 0 0.6rem 0;
+    }
+
+    .who-line:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .content-links {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .content-link {
+      display: inline-block;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      transition: background-color 0.2s ease;
+    }
+
+    .content-link:hover {
+      background-color: #f0f0f0;
+    }
+
+    hr {
+      margin: 3rem 0 1.5rem;
+      border: none;
+      border-top: 1px solid #ddd;
+    }
+
+    footer {
+      font-size: 0.95rem;
+      margin-top: 3rem;
+    }
+
     .contact-row {
       display: flex;
       align-items: center;
       gap: 0.5rem;
       margin-bottom: 0.5rem;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
-    a {
-      color: #007acc;
-      text-decoration: none;
+
+    .contact-row a {
+      display: inline;
+      padding: 2px 4px;
+      margin: 0;
+      width: auto;
+      border-radius: 4px;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .contact-row a:hover {
+      background-color: #f3f3f3;
     }
   </style>
 </head>
 <body>
   <h1>Hi, I'm Marc 👋</h1>
 
-  <div class="contact-row">
-    📬 Reach me at
-    <a href="mailto:mail@marcbachelet.com">mail@marcbachelet.com</a>
+  <h2>Who I am</h2>
+  <p class="who-line">👨‍🎓 Electrical Engineering student @ <strong>RWTH Aachen</strong></p>
+  <p class="who-line">🇫🇷 French & 🇩🇪 German</p>
+  <p class="who-line">🏃‍♂️ Passionate runner, 🏋️‍♂️ the gym is my side quest.</p>
+
+  <h2>Contents</h2>
+  <div class="content-links">
+    <a class="content-link" href="running.html">🏃 Running</a>
   </div>
 
-  <div class="contact-row">
-    💼 Find me on
-    <a href="https://www.linkedin.com/in/marcbachelet" target="_blank">LinkedIn</a>
-  </div>
+  <hr />
+
+  <footer>
+    <div class="contact-row">
+      📬 Reach me at
+      <a href="mailto:mail@marcbachelet.com">mail@marcbachelet.com</a>
+    </div>
+    <div class="contact-row">
+      💼 Find me on
+      <a href="https://www.linkedin.com/in/marcbachelet" target="_blank">LinkedIn</a>
+    </div>
+  </footer>
 </body>
 </html>

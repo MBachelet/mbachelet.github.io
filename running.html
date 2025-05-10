@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Running – Marc Bachelet</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #fff;
+      color: #111;
+      max-width: 600px;
+      margin: 5rem auto;
+      padding: 0 1rem;
+      line-height: 1.6;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #222;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .pb-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 2fr 1fr;
+      gap: 0.75rem;
+      font-weight: 600;
+      color: #555;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      padding: 0 0.25rem;
+    }
+
+    .pb-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 2fr 1fr;
+      gap: 0.75rem;
+      align-items: center;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      border-left: 8px solid transparent;
+      position: relative;
+      text-decoration: none;
+      color: inherit;
+      transition: background-color 0.2s ease;
+    }
+
+    .pb-card.pb {
+      border-left: 8px solid #4CAF50;
+    }
+
+    .pb-card.race {
+      border-left: 8px solid #ccc;
+    }
+
+    .pb-card:hover {
+      background-color: #f0f0f0;
+    }
+
+    .pb-field {
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    .pb-field.event {
+      font-weight: 600;
+    }
+
+    .image-preview {
+      grid-column: 1 / -1;
+      overflow: hidden;
+      max-height: 0;
+      margin: 0;
+      padding: 0;
+      transition: max-height 0.3s ease, margin-top 0.3s ease;
+    }
+
+    .pb-card:hover .image-preview {
+      max-height: 200px;
+      margin-top: 0.25rem;
+    }
+
+    .image-preview img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      display: block;
+    }
+
+    .goals {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .goal-line {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .goal-label {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #222;
+      min-width: 120px;
+    }
+
+    .goal-tag {
+      background-color: #f4f4f4;
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .ui-link {
+      position: fixed;
+      bottom: 1rem;
+      left: 1rem;
+      font-size: 1.25rem;
+      background-color: #f9f9f9;
+      padding: 0.4rem 0.6rem;
+      border-radius: 6px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      z-index: 1000;
+      text-decoration: none;
+    }
+
+    .ui-link:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <a class="ui-link" href="index.html">🔙</a>
+
+  <h1>Running 🏃</h1>
+
+  <h2>Races</h2>
+
+  <div class="pb-header">
+    <span>🏁 Event</span>
+    <span>⏱ Time</span>
+    <span>⚡️ Pace</span>
+    <span>📍 Race</span>
+    <span>📅 Date</span>
+  </div>
+
+  <!-- Combined Visé PB block -->
+  <div class="pb-card pb">
+    <div style="display: contents;">
+      <span class="pb-field event">10K</span>
+      <span class="pb-field">36:57</span>
+      <span class="pb-field">3:42/km</span>
+      <span class="pb-field">Maasmarathon Visé</span>
+      <span class="pb-field">2025</span>
+
+      <span class="pb-field event">Half Marathon</span>
+      <span class="pb-field">1:18:09</span>
+      <span class="pb-field">3:42/km</span>
+      <span class="pb-field"></span>
+      <span class="pb-field"></span>
+    </div>
+    <div class="image-preview">
+      <img src="img/vise.jpg" alt="Maasmarathon Visé">
+    </div>
+  </div>
+
+  <div class="pb-card pb">
+    <span class="pb-field event">Marathon</span>
+    <span class="pb-field">2:53:28</span>
+    <span class="pb-field">4:07/km</span>
+    <span class="pb-field">Paris Marathon</span>
+    <span class="pb-field">2024</span>
+    <div class="image-preview">
+      <img src="img/paris.jpg" alt="Paris Marathon">
+    </div>
+  </div>
+
+  <!-- Other races -->
+  <div class="pb-card race">
+    <span class="pb-field event">Marathon</span>
+    <span class="pb-field">2:55:27</span>
+    <span class="pb-field">4:07/km</span>
+    <span class="pb-field">Cologne Marathon</span>
+    <span class="pb-field">2024</span>
+    <div class="image-preview">
+      <img src="img/cologne.jpg" alt="Cologne Marathon">
+    </div>
+  </div>
+
+  <div class="pb-card race">
+    <span class="pb-field event">Marathon</span>
+    <span class="pb-field">2:58:26</span>
+    <span class="pb-field">4:14/km</span>
+    <span class="pb-field">Geneva Marathon</span>
+    <span class="pb-field">2023</span>
+    <div class="image-preview">
+      <img src="img/geneva.jpg" alt="Geneva Marathon">
+    </div>
+  </div>
+
+  <div class="pb-card race">
+    <span class="pb-field event">20K</span>
+    <span class="pb-field">1:21:34</span>
+    <span class="pb-field">4:05/km</span>
+    <span class="pb-field">20 km de Lausanne</span>
+    <span class="pb-field">2023</span>
+    <div class="image-preview">
+      <img src="img/lausanne.jpg" alt="20 km de Lausanne">
+    </div>
+  </div>
+
+  <h2>Goals 🎯</h2>
+  <div class="goals">
+    <div class="goal-line">
+      <span class="goal-label">Marathon</span>
+      <span class="goal-tag">Sub 2h45</span>
+    </div>
+    <div class="goal-line">
+      <span class="goal-label">Half Marathon</span>
+      <span class="goal-tag">Sub 1h15</span>
+    </div>
+    <div class="goal-line">
+      <span class="goal-label">10K</span>
+      <span class="goal-tag">Sub 35 min</span>
+    </div>
+  </div>
+</body>
+</html>
