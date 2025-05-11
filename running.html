@@ -157,10 +157,50 @@
       background-color: #f0f0f0;
     }
 
+    .mobile-only {
+      display: none;
+    }
+
     @media (max-width: 700px) {
+      .pb-header {
+        display: none;
+      }
+
+      .pb-card {
+        display: block;
+        padding: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+        transition: background-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .pb-card:active {
+        background-color: #f4f4f4;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+      }
+
+      .pb-field {
+        display: block;
+        margin-bottom: 0.3rem;
+        font-size: 1rem;
+      }
+
+      .pb-field.event {
+        margin-top: 0.5rem;
+        font-weight: 600;
+      }
+
       .pb-card:hover .image-preview {
         max-height: 0;
         margin-top: 0;
+      }
+
+      .mobile-only {
+        display: block;
+        font-size: 0.85rem;
+        color: #777;
+        margin-top: 0.5rem;
       }
     }
   </style>
@@ -172,12 +212,9 @@
 
   <h2>Races</h2>
 
-  <div class="pb-header">
-    <span>🏁 Event</span>
-    <span>⏱ Time</span>
-    <span>⚡️ Pace</span>
-    <span>📍 Race</span>
-    <span>📅 Date</span>
+  <!-- Tap hint for mobile -->
+  <div class="mobile-only" style="margin-bottom: 1rem;">
+    📱 Tap a race to view the photo
   </div>
 
   <div class="pb-card pb" onclick="toggleImage(this)">
@@ -191,8 +228,6 @@
       <span class="pb-field event">Half Marathon</span>
       <span class="pb-field">1:18:09</span>
       <span class="pb-field">3:42/km</span>
-      <span class="pb-field"></span>
-      <span class="pb-field"></span>
     </div>
     <div class="image-preview">
       <img src="img/vise.jpg" alt="Maasmarathon Visé">
