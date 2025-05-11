@@ -100,6 +100,7 @@
     .image-preview img {
       width: 100%;
       max-height: 250px;
+      height: auto;
       object-fit: contain;
       border-radius: 8px;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -156,7 +157,6 @@
       background-color: #f0f0f0;
     }
 
-    /* Mobile-specific override: disable hover-based reveal */
     @media (max-width: 700px) {
       .pb-card:hover .image-preview {
         max-height: 0;
