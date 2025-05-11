@@ -69,15 +69,6 @@
       background-color: #f0f0f0;
     }
 
-    .pb-field {
-      font-size: 0.95rem;
-      color: #333;
-    }
-
-    .pb-field.event {
-      font-weight: 600;
-    }
-
     .image-preview {
       grid-column: 1 / -1;
       overflow: hidden;
@@ -87,12 +78,8 @@
       transition: max-height 0.4s ease, margin-top 0.3s ease;
     }
 
-    .pb-card:hover .image-preview {
-      max-height: 1000px;
-      margin-top: 0.75rem;
-    }
-
-    .pb-card.open .image-preview {
+    body:not(.touch-enabled) .pb-card:hover .image-preview,
+    body.touch-enabled .pb-card.open .image-preview {
       max-height: 1000px;
       margin-top: 0.75rem;
     }
@@ -157,7 +144,8 @@
       background-color: #f0f0f0;
     }
 
-    .mobile-only {
+    /* Hide emojis by default (desktop) */
+    .emoji {
       display: none;
     }
 
@@ -171,8 +159,30 @@
         padding: 1rem;
         border: 1px solid #ddd;
         border-radius: 10px;
+        margin-bottom: 0.75rem;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
-        transition: background-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .field-line {
+        display: grid;
+        grid-template-columns: 2rem 1fr;
+        align-items: start;
+        margin-bottom: 0.4rem;
+      }
+
+      .emoji {
+        display: inline;
+        font-size: 1.05rem;
+        padding-top: 1px;
+      }
+
+      .field {
+        font-size: 1rem;
+        color: #333;
+      }
+
+      .field.event {
+        font-weight: 600;
       }
 
       .pb-card:active {
@@ -180,27 +190,9 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
       }
 
-      .pb-field {
-        display: block;
-        margin-bottom: 0.3rem;
-        font-size: 1rem;
-      }
-
-      .pb-field.event {
-        margin-top: 0.5rem;
-        font-weight: 600;
-      }
-
-      .pb-card:hover .image-preview {
-        max-height: 0;
-        margin-top: 0;
-      }
-
-      .mobile-only {
-        display: block;
-        font-size: 0.85rem;
-        color: #777;
-        margin-top: 0.5rem;
+      body:not(.touch-enabled) .pb-card:hover .image-preview {
+        max-height: 1000px;
+        margin-top: 0.75rem;
       }
     }
   </style>
@@ -212,67 +204,67 @@
 
   <h2>Races</h2>
 
-  <!-- Tap hint for mobile -->
-  <div class="mobile-only" style="margin-bottom: 1rem;">
-    📱 Tap a race to view the photo
+  <div class="pb-header">
+    <span>🏁 Event</span>
+    <span>⏱ Time</span>
+    <span>⚡️ Pace</span>
+    <span>📍 Race</span>
+    <span>📅 Date</span>
   </div>
 
-  <div class="pb-card pb" onclick="toggleImage(this)">
-    <div style="display: contents;">
-      <span class="pb-field event">10K</span>
-      <span class="pb-field">36:57</span>
-      <span class="pb-field">3:42/km</span>
-      <span class="pb-field">Maasmarathon Visé</span>
-      <span class="pb-field">2025</span>
-
-      <span class="pb-field event">Half Marathon</span>
-      <span class="pb-field">1:18:09</span>
-      <span class="pb-field">3:42/km</span>
-    </div>
+  <div class="pb-card pb">
+    <div class="field-line"><span class="emoji">🏁</span><span class="field event">10K</span></div>
+    <div class="field-line"><span class="emoji">⏱</span><span class="field">36:57</span></div>
+    <div class="field-line"><span class="emoji">⚡️</span><span class="field">3:42/km</span></div>
+    <div class="field-line"><span class="emoji">📍</span><span class="field">Maasmarathon Visé</span></div>
+    <div class="field-line"><span class="emoji">📅</span><span class="field">2025</span></div>
+    <div class="field-line"><span class="emoji">🏁</span><span class="field event">Half Marathon</span></div>
+    <div class="field-line"><span class="emoji">⏱</span><span class="field">1:18:09</span></div>
+    <div class="field-line"><span class="emoji">⚡️</span><span class="field">3:42/km</span></div>
     <div class="image-preview">
       <img src="img/vise.jpg" alt="Maasmarathon Visé">
     </div>
   </div>
 
-  <div class="pb-card pb" onclick="toggleImage(this)">
-    <span class="pb-field event">Marathon</span>
-    <span class="pb-field">2:53:28</span>
-    <span class="pb-field">4:07/km</span>
-    <span class="pb-field">Paris Marathon</span>
-    <span class="pb-field">2024</span>
+  <div class="pb-card pb">
+    <div class="field-line"><span class="emoji">🏁</span><span class="field event">Marathon</span></div>
+    <div class="field-line"><span class="emoji">⏱</span><span class="field">2:53:28</span></div>
+    <div class="field-line"><span class="emoji">⚡️</span><span class="field">4:07/km</span></div>
+    <div class="field-line"><span class="emoji">📍</span><span class="field">Paris Marathon</span></div>
+    <div class="field-line"><span class="emoji">📅</span><span class="field">2024</span></div>
     <div class="image-preview">
       <img src="img/paris.jpg" alt="Paris Marathon">
     </div>
   </div>
 
-  <div class="pb-card race" onclick="toggleImage(this)">
-    <span class="pb-field event">Marathon</span>
-    <span class="pb-field">2:55:27</span>
-    <span class="pb-field">4:07/km</span>
-    <span class="pb-field">Cologne Marathon</span>
-    <span class="pb-field">2024</span>
+  <div class="pb-card race">
+    <div class="field-line"><span class="emoji">🏁</span><span class="field event">Marathon</span></div>
+    <div class="field-line"><span class="emoji">⏱</span><span class="field">2:55:27</span></div>
+    <div class="field-line"><span class="emoji">⚡️</span><span class="field">4:07/km</span></div>
+    <div class="field-line"><span class="emoji">📍</span><span class="field">Cologne Marathon</span></div>
+    <div class="field-line"><span class="emoji">📅</span><span class="field">2024</span></div>
     <div class="image-preview">
       <img src="img/cologne.jpg" alt="Cologne Marathon">
     </div>
   </div>
 
-  <div class="pb-card race" onclick="toggleImage(this)">
-    <span class="pb-field event">Marathon</span>
-    <span class="pb-field">2:58:26</span>
-    <span class="pb-field">4:14/km</span>
-    <span class="pb-field">Geneva Marathon</span>
-    <span class="pb-field">2023</span>
+  <div class="pb-card race">
+    <div class="field-line"><span class="emoji">🏁</span><span class="field event">Marathon</span></div>
+    <div class="field-line"><span class="emoji">⏱</span><span class="field">2:58:26</span></div>
+    <div class="field-line"><span class="emoji">⚡️</span><span class="field">4:14/km</span></div>
+    <div class="field-line"><span class="emoji">📍</span><span class="field">Geneva Marathon</span></div>
+    <div class="field-line"><span class="emoji">📅</span><span class="field">2023</span></div>
     <div class="image-preview">
       <img src="img/geneva.jpg" alt="Geneva Marathon">
     </div>
   </div>
 
-  <div class="pb-card race" onclick="toggleImage(this)">
-    <span class="pb-field event">20K</span>
-    <span class="pb-field">1:21:34</span>
-    <span class="pb-field">4:05/km</span>
-    <span class="pb-field">20 km de Lausanne</span>
-    <span class="pb-field">2023</span>
+  <div class="pb-card race">
+    <div class="field-line"><span class="emoji">🏁</span><span class="field event">20K</span></div>
+    <div class="field-line"><span class="emoji">⏱</span><span class="field">1:21:34</span></div>
+    <div class="field-line"><span class="emoji">⚡️</span><span class="field">4:05/km</span></div>
+    <div class="field-line"><span class="emoji">📍</span><span class="field">20 km de Lausanne</span></div>
+    <div class="field-line"><span class="emoji">📅</span><span class="field">2023</span></div>
   </div>
 
   <h2>Goals 🎯</h2>
@@ -292,11 +284,17 @@
   </div>
 
   <script>
-    function toggleImage(card) {
-      if (window.innerWidth <= 700) {
-        card.classList.toggle('open');
-      }
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+      document.body.classList.add('touch-enabled');
     }
+
+    document.querySelectorAll('.pb-card').forEach(card => {
+      card.addEventListener('click', () => {
+        if (document.body.classList.contains('touch-enabled')) {
+          card.classList.toggle('open');
+        }
+      });
+    });
   </script>
 </body>
 </html>
