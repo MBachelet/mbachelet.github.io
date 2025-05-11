@@ -281,35 +281,4 @@
   </div>
 
   <script>
-    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-      document.body.classList.add('touch-enabled');
-    }
-
-    document.querySelectorAll('.pb-card').forEach(card => {
-      const img = card.querySelector('.image-preview');
-      const chevron = card.querySelector('.chevron');
-      if (!img || !chevron) return;
-
-      chevron.textContent = '▸';
-
-      card.addEventListener('click', () => {
-        if (document.body.classList.contains('touch-enabled')) {
-          card.classList.toggle('open');
-          chevron.textContent = card.classList.contains('open') ? '▾' : '▸';
-        }
-      });
-
-      if (!document.body.classList.contains('touch-enabled')) {
-        card.addEventListener('mouseenter', () => {
-          chevron.textContent = '▾';
-        });
-        card.addEventListener('mouseleave', () => {
-          if (!card.classList.contains('open')) {
-            chevron.textContent = '▸';
-          }
-        });
-      }
-    });
-  </script>
-</body>
-</html>
+    if ('ontouchstart' in window || navigato
