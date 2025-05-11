@@ -30,27 +30,28 @@
 
     .pb-header {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 2fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 2fr 1.1fr;
       gap: 0.75rem;
       font-weight: 600;
       color: #555;
       font-size: 0.9rem;
       margin-bottom: 0.5rem;
       padding: 0 0.25rem;
+      padding-left: 1.5rem;
     }
 
     .pb-card {
+      position: relative;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 2fr 1fr;
       gap: 0.75rem;
       align-items: center;
       background-color: #f9f9f9;
       border-radius: 10px;
-      padding: 1rem 1.25rem;
+      padding: 1rem 1.25rem 1rem 2rem;
       margin-bottom: 0.5rem;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
       border-left: 8px solid transparent;
-      position: relative;
       text-decoration: none;
       color: inherit;
       transition: background-color 0.2s ease;
@@ -67,6 +68,15 @@
 
     .pb-card:hover {
       background-color: #f0f0f0;
+    }
+
+    .chevron {
+      position: absolute;
+      left: 0.75rem;
+      top: 0.1rem;
+      font-size: 2rem;
+      color: #aaa;
+      user-select: none;
     }
 
     .image-preview {
@@ -92,6 +102,10 @@
       border-radius: 8px;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
       display: block;
+    }
+
+    .field.event {
+      font-weight: 600;
     }
 
     .goals {
@@ -123,10 +137,6 @@
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
     }
 
-    a {
-      color: inherit;
-    }
-
     .ui-link {
       position: fixed;
       bottom: 1rem;
@@ -144,11 +154,6 @@
       background-color: #f0f0f0;
     }
 
-    /* Hide emojis by default (desktop) */
-    .emoji {
-      display: none;
-    }
-
     @media (max-width: 700px) {
       .pb-header {
         display: none;
@@ -156,52 +161,30 @@
 
       .pb-card {
         display: block;
-        padding: 1rem;
+        padding: 1rem 1rem 1rem 2.25rem;
         border: 1px solid #ddd;
         border-radius: 10px;
         margin-bottom: 0.75rem;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
       }
 
-      .field-line {
-        display: grid;
-        grid-template-columns: 2rem 1fr;
-        align-items: start;
-        margin-bottom: 0.4rem;
-      }
+      .pb-card > span:nth-of-type(1)::before { content: "🏁 "; font-weight: bold; }
+      .pb-card > span:nth-of-type(2)::before { content: "⏱ "; }
+      .pb-card > span:nth-of-type(3)::before { content: "⚡️ "; }
+      .pb-card > span:nth-of-type(4)::before { content: "📍 "; }
+      .pb-card > span:nth-of-type(5)::before { content: "📅 "; }
 
-      .emoji {
-        display: inline;
-        font-size: 1.05rem;
-        padding-top: 1px;
-      }
-
-      .field {
+      .pb-card > span {
+        display: block;
+        margin-bottom: 0.3rem;
         font-size: 1rem;
-        color: #333;
-      }
-
-      .field.event {
-        font-weight: 600;
-      }
-
-      .pb-card:active {
-        background-color: #f4f4f4;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
-      }
-
-      body:not(.touch-enabled) .pb-card:hover .image-preview {
-        max-height: 1000px;
-        margin-top: 0.75rem;
       }
     }
   </style>
 </head>
 <body>
   <a class="ui-link" href="index.html">🔙</a>
-
   <h1>Running 🏃</h1>
-
   <h2>Races</h2>
 
   <div class="pb-header">
@@ -212,59 +195,73 @@
     <span>📅 Date</span>
   </div>
 
+  <!-- Example race -->
   <div class="pb-card pb">
-    <div class="field-line"><span class="emoji">🏁</span><span class="field event">10K</span></div>
-    <div class="field-line"><span class="emoji">⏱</span><span class="field">36:57</span></div>
-    <div class="field-line"><span class="emoji">⚡️</span><span class="field">3:42/km</span></div>
-    <div class="field-line"><span class="emoji">📍</span><span class="field">Maasmarathon Visé</span></div>
-    <div class="field-line"><span class="emoji">📅</span><span class="field">2025</span></div>
-    <div class="field-line"><span class="emoji">🏁</span><span class="field event">Half Marathon</span></div>
-    <div class="field-line"><span class="emoji">⏱</span><span class="field">1:18:09</span></div>
-    <div class="field-line"><span class="emoji">⚡️</span><span class="field">3:42/km</span></div>
+    <div class="chevron">▸</div>
+    <span class="field event">10K</span>
+    <span class="field">36:57</span>
+    <span class="field">3:42/km</span>
+    <span class="field">Maasmarathon Visé</span>
+    <span class="field">2025</span>
     <div class="image-preview">
       <img src="img/vise.jpg" alt="Maasmarathon Visé">
     </div>
   </div>
 
   <div class="pb-card pb">
-    <div class="field-line"><span class="emoji">🏁</span><span class="field event">Marathon</span></div>
-    <div class="field-line"><span class="emoji">⏱</span><span class="field">2:53:28</span></div>
-    <div class="field-line"><span class="emoji">⚡️</span><span class="field">4:07/km</span></div>
-    <div class="field-line"><span class="emoji">📍</span><span class="field">Paris Marathon</span></div>
-    <div class="field-line"><span class="emoji">📅</span><span class="field">2024</span></div>
+    <div class="chevron">▸</div>
+    <span class="field event">Half Marathon</span>
+    <span class="field">1:18:09</span>
+    <span class="field">3:42/km</span>
+    <span class="field">Maasmarathon Visé</span>
+    <span class="field">2025</span>
+    <div class="image-preview">
+      <img src="img/vise.jpg" alt="Maasmarathon Visé Half">
+    </div>
+  </div>
+
+  <div class="pb-card pb">
+    <div class="chevron">▸</div>
+    <span class="field event">Marathon</span>
+    <span class="field">2:53:28</span>
+    <span class="field">4:07/km</span>
+    <span class="field">Paris Marathon</span>
+    <span class="field">2024</span>
     <div class="image-preview">
       <img src="img/paris.jpg" alt="Paris Marathon">
     </div>
   </div>
 
   <div class="pb-card race">
-    <div class="field-line"><span class="emoji">🏁</span><span class="field event">Marathon</span></div>
-    <div class="field-line"><span class="emoji">⏱</span><span class="field">2:55:27</span></div>
-    <div class="field-line"><span class="emoji">⚡️</span><span class="field">4:07/km</span></div>
-    <div class="field-line"><span class="emoji">📍</span><span class="field">Cologne Marathon</span></div>
-    <div class="field-line"><span class="emoji">📅</span><span class="field">2024</span></div>
+    <div class="chevron">▸</div>
+    <span class="field event">Marathon</span>
+    <span class="field">2:55:27</span>
+    <span class="field">4:07/km</span>
+    <span class="field">Cologne Marathon</span>
+    <span class="field">2024</span>
     <div class="image-preview">
       <img src="img/cologne.jpg" alt="Cologne Marathon">
     </div>
   </div>
 
   <div class="pb-card race">
-    <div class="field-line"><span class="emoji">🏁</span><span class="field event">Marathon</span></div>
-    <div class="field-line"><span class="emoji">⏱</span><span class="field">2:58:26</span></div>
-    <div class="field-line"><span class="emoji">⚡️</span><span class="field">4:14/km</span></div>
-    <div class="field-line"><span class="emoji">📍</span><span class="field">Geneva Marathon</span></div>
-    <div class="field-line"><span class="emoji">📅</span><span class="field">2023</span></div>
+    <div class="chevron">▸</div>
+    <span class="field event">Marathon</span>
+    <span class="field">2:58:26</span>
+    <span class="field">4:14/km</span>
+    <span class="field">Geneva Marathon</span>
+    <span class="field">2023</span>
     <div class="image-preview">
       <img src="img/geneva.jpg" alt="Geneva Marathon">
     </div>
   </div>
 
   <div class="pb-card race">
-    <div class="field-line"><span class="emoji">🏁</span><span class="field event">20K</span></div>
-    <div class="field-line"><span class="emoji">⏱</span><span class="field">1:21:34</span></div>
-    <div class="field-line"><span class="emoji">⚡️</span><span class="field">4:05/km</span></div>
-    <div class="field-line"><span class="emoji">📍</span><span class="field">20 km de Lausanne</span></div>
-    <div class="field-line"><span class="emoji">📅</span><span class="field">2023</span></div>
+    <span class="field event">20K</span>
+    <span class="field">1:21:34</span>
+    <span class="field">4:05/km</span>
+    <span class="field">20 km de Lausanne</span>
+    <span class="field">2023</span>
   </div>
 
   <h2>Goals 🎯</h2>
@@ -289,11 +286,29 @@
     }
 
     document.querySelectorAll('.pb-card').forEach(card => {
+      const img = card.querySelector('.image-preview');
+      const chevron = card.querySelector('.chevron');
+      if (!img || !chevron) return;
+
+      chevron.textContent = '▸';
+
       card.addEventListener('click', () => {
         if (document.body.classList.contains('touch-enabled')) {
           card.classList.toggle('open');
+          chevron.textContent = card.classList.contains('open') ? '▾' : '▸';
         }
       });
+
+      if (!document.body.classList.contains('touch-enabled')) {
+        card.addEventListener('mouseenter', () => {
+          chevron.textContent = '▾';
+        });
+        card.addEventListener('mouseleave', () => {
+          if (!card.classList.contains('open')) {
+            chevron.textContent = '▸';
+          }
+        });
+      }
     });
   </script>
 </body>
