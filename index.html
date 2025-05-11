@@ -63,14 +63,24 @@
 
     .content-link {
       display: inline-block;
-      padding: 0.6rem 1rem;
-      border-radius: 8px;
+      padding: 0.7rem 1.2rem;
+      border-radius: 10px;
       background-color: #f9f9f9;
-      transition: background-color 0.2s ease;
+      border: 1px solid #ddd;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+      cursor: pointer;
+      font-weight: 500;
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      text-underline-offset: 3px;
+      transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, text-decoration-color 0.2s ease;
     }
 
     .content-link:hover {
-      background-color: #f0f0f0;
+      background-color: #f4f4f4;
+      border-color: #ccc;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+      text-decoration-color: currentColor;
     }
 
     hr {
@@ -89,22 +99,52 @@
       align-items: center;
       gap: 0.5rem;
       margin-bottom: 0.5rem;
-      flex-wrap: nowrap;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      flex-wrap: wrap;
+      line-height: 1.5;
     }
 
     .contact-row a {
-      display: inline;
       padding: 2px 4px;
-      margin: 0;
-      width: auto;
       border-radius: 4px;
     }
 
     .contact-row a:hover {
       background-color: #f3f3f3;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
+      body {
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      h2 {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+
+      .who-line {
+        font-size: 1rem;
+      }
+
+      .notice {
+        font-size: 0.9rem;
+        padding: 0.75rem;
+      }
+
+      .content-link {
+        padding: 0.6rem 1rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
