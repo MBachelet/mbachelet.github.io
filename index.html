@@ -9,10 +9,21 @@
       font-family: system-ui, sans-serif;
       background: #fff;
       color: #111;
-      max-width: 600px;
-      margin: 5rem auto;
-      padding: 0 1rem;
       line-height: 1.6;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page-content {
+      max-width: 600px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 3.5rem 1rem 1.75rem;
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: column;
     }
 
     .notice {
@@ -34,7 +45,7 @@
       font-size: 1.25rem;
       font-weight: 600;
       color: #222;
-      margin-top: 3rem;
+      margin-top: 2.5rem;
       margin-bottom: 1rem;
     }
 
@@ -54,42 +65,13 @@
       transition: background-color 0.2s ease, text-decoration-color 0.2s ease;
     }
 
-    .content-links {
-      margin-top: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .content-link {
-      display: inline-block;
-      padding: 0.7rem 1.2rem;
-      border-radius: 10px;
-      background-color: #f9f9f9;
-      border: 1px solid #ddd;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
-      cursor: pointer;
-      font-weight: 500;
-      text-decoration: underline;
-      text-decoration-color: transparent;
-      text-underline-offset: 3px;
-    }
-
-    .content-link:hover {
-      background-color: #f4f4f4;
-      border-color: #ccc;
-      text-decoration-color: currentColor;
-    }
-
-    hr {
-      margin: 3rem 0 1.5rem;
-      border: none;
-      border-top: 1px solid #ddd;
-    }
-
     footer {
       font-size: 0.95rem;
-      margin-top: 3rem;
+      padding: 2rem 1rem 3rem;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      border-top: 1px solid #ddd;
     }
 
     .footer-link {
@@ -131,11 +113,6 @@
     }
 
     @media (max-width: 600px) {
-      body {
-        margin: 2rem auto;
-        padding: 0 1rem;
-      }
-
       h1 {
         font-size: 1.6rem;
       }
@@ -153,37 +130,28 @@
         font-size: 0.9rem;
         padding: 0.75rem;
       }
-
-      .content-link {
-        padding: 0.6rem 1rem;
-        font-size: 0.95rem;
+      .page-content {
+        padding: 2.5rem 1rem 1.25rem;
       }
-
       footer {
         font-size: 0.9rem;
+        padding: 1.5rem 1rem 2rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="notice">
-    🚧 This website is currently under construction – lots more to come soon!
-  </div>
+  <main class="page-content">
+    <div class="notice">
+      🚧 This website is currently under construction – lots more to come soon!
+    </div>
 
-  <h1>Hi, I'm Marc 👋</h1>
+    <h1>Hi, I'm Marc 👋</h1>
 
-  <h2>Who I am</h2>
-  <p class="who-line">👨‍🎓 Electrical Engineering student @ <strong>RWTH Aachen</strong></p>
-  <p class="who-line">🇫🇷 French & 🇩🇪 German</p>
-  <p class="who-line">🏃‍♂️ Passionate runner, 🏋️‍♂️ the gym is my side quest.</p>
-
-  <h2>Contents</h2>
-  <div class="content-links">
-    <a class="content-link" href="running.html">🏃 Running</a>
-  </div>
-
-  <hr />
-
+    <h2>Who I am</h2>
+    <p class="who-line">👨‍🎓 Electrical Engineering student @ <strong>RWTH Aachen</strong></p>
+    <p class="who-line">🇫🇷 French & 🇩🇪 German</p>
+  </main>
   <footer>
     <div class="footer-link">
       <span class="icon">📄</span>
